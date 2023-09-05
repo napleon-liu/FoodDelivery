@@ -1,20 +1,23 @@
 package main
 
 import (
-	"context"
-
-	"github.com/cloudwego/hertz/pkg/app"
-	"github.com/cloudwego/hertz/pkg/app/server"
-	"github.com/cloudwego/hertz/pkg/common/utils"
-	"github.com/cloudwego/hertz/pkg/protocol/consts"
+	"FoodDelivery/internal/api/v1"
+	conf "FoodDelivery/internal/config"
+	"FoodDelivery/internal/repository/mysql/dao"
 )
 
 func main() {
-	h := server.Default()
+	loading()
 
-	h.GET("/ping", func(c context.Context, ctx *app.RequestContext) {
-		ctx.JSON(consts.StatusOK, utils.H{"message": "pong"})
-	})
+	r := api.NewRouter()
 
-	h.Spin()
+	_ = r.Run(conf.HttpPort)
+}
+
+func loading() {
+	// 从配置文件读入配置
+	conf.Init()
+	// util.InitLog()
+	dao.MySQLInit()
+	// cache.Redis()
 }

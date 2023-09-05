@@ -89,17 +89,21 @@ git config --global core.longpaths true # 解决 Git 中 'Filename too long' 的
 ~~~bash
 ./
 ├── cmd
+│   ├── migration
+│   └── server
+│       └── main.go
 ├── go.mod
+├── go.sum
 ├── internal
 │   ├── api
 │   │   └── v1
-│   ├── config  # 配置文件
-│   ├── model   # 模型层，包括实体与服务
+│   ├── config
+│   ├── model
 │   ├── pkg
-│   │   ├── middleware # 中间件
-│   │   └── utils # 内部工具包
-│   ├── service # 服务
-│   └── store # 存储服务
+│   │   ├── middleware
+│   │   └── utils
+│   ├── repository
+│   └── service
 ├── pkg
 ├── README.md
 └── website
