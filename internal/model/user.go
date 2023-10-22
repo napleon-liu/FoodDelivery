@@ -8,4 +8,17 @@ type User struct {
 	Session  string
 	Account  string
 	Password string
+	Role     int
+}
+
+type Customer struct {
+	User
+}
+
+type Deliveryman struct {
+	User
+}
+
+type Stuff struct {
+	User
 }

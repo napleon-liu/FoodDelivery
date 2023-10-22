@@ -1,58 +1,49 @@
-package conf
+package config
 
 import (
+	"encoding/json"
+	"fmt"
 	"log"
-
-	"gopkg.in/ini.v1"
+	"os"
 )
 
-var (
-	AppMode  string
-	HttpPort string
+var ElemeiConfig Config
 
-	Db         string
-	DbHost     string
-	DbPort     string
-	DbUser     string
-	DbPassWord string
-	DbName     string
+type Config struct {
+	MySQLConfig MySQLConfig `json:"MySQLConfig"`
+	RedisConfig RedisConfig `json:"RedisConfig"`
+	EmailConfig EmailConfig `json:"EmailConfig"`
+}
 
-	RedisAddr   string
-	RedisPw     string
-	RedisDbName string
-)
+type MySQLConfig struct {
+	Name string `json:"Name"`
+	Host string `json:"Host"`
+	User string `json:"User"`
+	Pass string `json:"Pass"`
+}
 
-func Init() {
-	file, err := ini.Load("config/config.ini")
+type RedisConfig struct {
+	Addr string `json:"Addr"`
+	Pass string `json:"Pass"`
+}
+type EmailConfig struct {
+	From     string `json:"From"`
+	Host     string `json:"Host"`
+	Addr     string `json:"Addr"`
+	Username string `json:"Username"`
+	Pass     string `json:"Pass"`
+}
+
+func Init(path string) error {
+	conf, err := os.ReadFile(path)
 	if err != nil {
-		log.Println("配置文件读取错误，请检查文件路径:", err)
-		panic(err)
+		log.Println(fmt.Errorf("read conf err: %v", err))
+		return err
 	}
-	// if err := LoadLocales("config/locales/zh-cn.yaml"); err != nil {
-	// 	log.Println(err) // 日志内容
-	// 	panic(err)
-	// }
-	LoadServer(file)
-	LoadMysqlData(file)
-	LoadRedis(file)
-}
-
-func LoadServer(file *ini.File) {
-	AppMode = file.Section("service").Key("AppMode").String()
-	HttpPort = file.Section("service").Key("HttpPort").String()
-}
-
-func LoadMysqlData(file *ini.File) {
-	Db = file.Section("mysql").Key("Db").String()
-	DbHost = file.Section("mysql").Key("DbHost").String()
-	DbPort = file.Section("mysql").Key("DbPort").String()
-	DbUser = file.Section("mysql").Key("DbUser").String()
-	DbPassWord = file.Section("mysql").Key("DbPassWord").String()
-	DbName = file.Section("mysql").Key("DbName").String()
-}
-
-func LoadRedis(file *ini.File) {
-	RedisAddr = file.Section("redis").Key("RedisAddr").String()
-	RedisPw = file.Section("redis").Key("RedisPw").String()
-	RedisDbName = file.Section("redis").Key("RedisDbName").String()
+	err = json.Unmarshal(conf, &ElemeiConfig)
+	if err != nil {
+		log.Println(fmt.Errorf("conf bind json err: %v", err))
+		return err
+	}
+	return nil
 }
