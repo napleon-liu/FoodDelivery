@@ -13,7 +13,7 @@ type UserRegisterReq struct {
 	Account  string `json:"account"`
 	Name     string `json:"name"`
 	Password string `json:"password"`
-	Role     string `json:"role"`
+	Role     int    `json:"role"`
 }
 
 // UserDetailReq 获取用户的个人信息

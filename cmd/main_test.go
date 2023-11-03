@@ -21,9 +21,9 @@ func TestGenerate(t *testing.T) {
 
 	_ = migrator.CreateTable(&model.Order{})
 	_ = migrator.CreateTable(&model.Comment{})
-	_ = migrator.CreateTable(&model.Customer{})
-	_ = migrator.CreateTable(&model.Stuff{})
-	_ = migrator.CreateTable(&model.Deliveryman{})
+	//_ = migrator.CreateTable(&model.Customer{})
+	//_ = migrator.CreateTable(&model.Stuff{})
+	//_ = migrator.CreateTable(&model.Deliveryman{})
 	_ = migrator.CreateTable(&model.Dish{})
 	_ = migrator.CreateTable(&model.User{})
 	_ = migrator.CreateTable(&model.OrderItem{})

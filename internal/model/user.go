@@ -8,7 +8,7 @@ type User struct {
 	Session  string
 	Account  string
 	Password string
-	Role     int
+	Role     int // 1. customer 2. employee 3. deliveryman
 	Avatar   string
 }
 
