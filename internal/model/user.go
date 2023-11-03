@@ -9,6 +9,7 @@ type User struct {
 	Account  string
 	Password string
 	Role     int
+	Avatar   string
 }
 
 type Customer struct {

@@ -7,22 +7,17 @@ func CreateOrder(ctx *gin.Context) {
 
 }
 
-// EmployeeVerify employee verify order
-func EmployeeVerify(ctx *gin.Context) {
+// UpdateStatus update order's status
+func UpdateStatus(ctx *gin.Context) {
 
 }
 
-// QueryDelivery employee finish dish, query deliveryman to verify order
-func QueryDelivery(ctx *gin.Context) {
+// GetOrderListByUserID get order list by user id
+func GetOrderListByUserID(ctx *gin.Context) {
 
 }
 
-// DeliverymanVerify deliveryman verify the order, prepare to delivery the order
-func DeliverymanVerify(ctx *gin.Context) {
-
-}
-
-// CustomerVerify deliveryman finish the task, customer verify
-func CustomerVerify(ctx *gin.Context) {
+// GetOrderListByStatus get order list by status
+func GetOrderListByStatus(ctx *gin.Context) {
 
 }

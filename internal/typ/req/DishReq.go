@@ -1,9 +1,30 @@
 package req
 
-// GetAllDishesReq 获取所有菜品请求
-type GetAllDishesReq struct {
+// GetAllDishReq 获取所有菜品请求
+type GetAllDishReq struct {
 }
 
-// GetDishDetail 获取某项菜品的详细信息
-type GetDishDetail struct {
+// GetDishDetailReq 获取某项菜品的详细信息
+type GetDishDetailReq struct {
+	ID uint `json:"id"`
+}
+
+// UpdateDishReq 更新某项菜品
+type UpdateDishReq struct {
+	ID         uint   `json:"id"`
+	Price      uint   `json:"price"`
+	PictureURL string `json:"pictureURL"`
+}
+
+// CreateDishReq 创建某项菜品
+type CreateDishReq struct {
+	ID          uint   `json:"id"`
+	Price       uint   `json:"price"`
+	PictureURL  string `json:"pictureURL"`
+	Description string `json:"description"`
+}
+
+// DeleteDishReq 删除某项菜品
+type DeleteDishReq struct {
+	ID uint `json:"id"`
 }

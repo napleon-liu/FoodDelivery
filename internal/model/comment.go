@@ -8,5 +8,4 @@ type Comment struct {
 	Rating     uint
 	DishID     uint
 	CustomerID uint
-	CommentID  uint
 }

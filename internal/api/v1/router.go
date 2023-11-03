@@ -27,11 +27,13 @@ func NewRouter() *gin.Engine {
 
 	{
 		orderRouter := router.Group("/order")
-		orderRouter.POST("/create", handlers.CreateOrder)                  // 顾客创建订单
-		orderRouter.PUT("/employee/verify", handlers.EmployeeVerify)       // 餐厅员工确认订单
-		orderRouter.PUT("/query/delivery", handlers.QueryDelivery)         // 餐厅员工请求送餐
-		orderRouter.PUT("/deliveryman/verify", handlers.DeliverymanVerify) // 送餐员确认送餐单
-		orderRouter.PUT("/customer/verify", handlers.CustomerVerify)       // 顾客确认已经送达
+		orderRouter.POST("/create", handlers.CreateOrder) // 顾客创建订单 status:1
+		orderRouter.PUT("/update", handlers.UpdateStatus) // 餐厅员工确认订单 status:2
+		// 餐厅员工请求送餐 status:3
+		// 送餐员确认送餐单 status:4
+		// 顾客确认已经送达 status:5
+		orderRouter.GET("/orderListByUserID", handlers.GetOrderListByUserID)
+		orderRouter.GET("/orderListByStatus", handlers.GetOrderListByStatus)
 	}
 
 	{
