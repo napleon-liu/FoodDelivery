@@ -16,3 +16,9 @@ type Order struct {
 	DeliverymanID uint
 	DishID        uint
 }
+
+type OrderItem struct {
+	gorm.Model
+	OrderID uint
+	DishID  uint
+}

@@ -18,24 +18,26 @@ func NewRouter() *gin.Engine {
 
 	{
 		dishRouter := router.Group("/dish")
-		dishRouter.GET("/all")
-		dishRouter.PUT("/update")
-		dishRouter.POST("/create")
-		dishRouter.DELETE("/delete")
-		dishRouter.GET("/detail")
+		dishRouter.GET("/all", handlers.GetDishList)
+		dishRouter.PUT("/update", handlers.UpdateDish)
+		dishRouter.POST("/create", handlers.CreateDish)
+		dishRouter.DELETE("/delete", handlers.DeleteDish)
+		dishRouter.GET("/detail", handlers.GetDishDetail)
 	}
 
 	{
 		orderRouter := router.Group("/order")
-		orderRouter.POST("/create")  // 顾客创建订单
-		orderRouter.PUT("/verify/1") // 餐厅员工确认订单
-		orderRouter.PUT("/wait")     // 请求送餐
-		orderRouter.PUT("/verify/2") // 送餐员确认送餐单
-		orderRouter.PUT("/verify/3") // 顾客确认已经送达
+		orderRouter.POST("/create", handlers.CreateOrder)                  // 顾客创建订单
+		orderRouter.PUT("/employee/verify", handlers.EmployeeVerify)       // 餐厅员工确认订单
+		orderRouter.PUT("/query/delivery", handlers.QueryDelivery)         // 餐厅员工请求送餐
+		orderRouter.PUT("/deliveryman/verify", handlers.DeliverymanVerify) // 送餐员确认送餐单
+		orderRouter.PUT("/customer/verify", handlers.CustomerVerify)       // 顾客确认已经送达
 	}
 
 	{
-		router.POST("/comment") // 评论
+		commentRouter := router.Group("/order")
+		commentRouter.POST("/create", handlers.CreateComment) // 顾客创建一条评论
+		commentRouter.GET("/all", handlers.GetCommentList)    // 获取对某条菜品的所有评价
 	}
 	return r
 }
