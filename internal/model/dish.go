@@ -7,5 +7,5 @@ type Dish struct {
 	Price       uint
 	Name        string
 	PictureURL  string
-	description string
+	Description string
 }
