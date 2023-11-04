@@ -1,10 +1,11 @@
 package resp
 
 type DishResp struct {
-	Id         string `json:"id"`
-	Price      string `json:"price"`
-	Name       string `json:"name"`
-	PictureURL string `json:"pictureURL"`
+	Id          string `json:"id"`
+	Price       string `json:"price"`
+	Name        string `json:"name"`
+	PictureURL  string `json:"pictureURL"`
+	Description string `json:"description"`
 }
 
 // GetAllDishResp 获取所有菜品

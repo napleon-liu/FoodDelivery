@@ -38,8 +38,8 @@ func NewRouter() *gin.Engine {
 
 	{
 		commentRouter := router.Group("/order")
-		commentRouter.POST("/create", handlers.CreateComment) // 顾客创建一条评论
-		commentRouter.GET("/all", handlers.GetCommentList)    // 获取对某条菜品的所有评价
+		//commentRouter.POST("/create", handlers.CreateComment) // 顾客创建一条评论
+		commentRouter.GET("/all", handlers.GetCommentList) // 获取对某条菜品的所有评价
 	}
 	return r
 }
