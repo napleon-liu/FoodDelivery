@@ -12,9 +12,10 @@ type CreateOrderReq struct {
 }
 
 type UpdateOrderReq struct {
-	Role   uint `json:"role"`
-	UserID uint `json:"userID"`
-	Status uint `json:"status"`
+	OrderID uint `json:"orderID"'`
+	Role    uint `json:"role"`
+	UserID  uint `json:"userID"`
+	Status  uint `json:"status"`
 }
 
 type GetOrderListByStatusReq struct {
