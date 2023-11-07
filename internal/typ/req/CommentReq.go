@@ -1,13 +1,12 @@
 package req
 
-type Comment struct {
-	CommentID  uint   `json:"commentID"`
+type CreateCommentReq struct {
 	Content    string `json:"content"`
 	Rating     uint   `json:"rating"`
 	DishID     uint   `json:"dishID"`
 	CustomerID uint   `json:"customerID"`
 }
 
-type GetCommentResp struct {
-	CommentList []Comment
+type GetCommentReq struct {
+	DishID uint `json:"dishID"`
 }
