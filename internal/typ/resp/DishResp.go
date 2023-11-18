@@ -1,8 +1,8 @@
 package resp
 
 type DishResp struct {
-	Id          string `json:"id"`
-	Price       string `json:"price"`
+	Id          uint   `json:"id"`
+	Price       uint   `json:"price"`
 	Name        string `json:"name"`
 	PictureURL  string `json:"pictureURL"`
 	Description string `json:"description"`

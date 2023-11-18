@@ -11,7 +11,6 @@ func NewRouter() *gin.Engine {
 	{
 		userRouter := router.Group("/user")
 		userRouter.POST("/login", handlers.Login)
-		//userRouter.POST("/logout", handlers.Logout)
 		userRouter.GET("/detail", handlers.GetUserDetail)
 		userRouter.POST("/register", handlers.Register)
 	}
@@ -37,7 +36,7 @@ func NewRouter() *gin.Engine {
 	}
 
 	{
-		commentRouter := router.Group("/order")
+		commentRouter := router.Group("/comment")
 		commentRouter.POST("/create", handlers.CreateComment) // 顾客创建一条评论
 		commentRouter.GET("/all", handlers.GetCommentList)    // 获取对某条菜品的所有评价
 	}

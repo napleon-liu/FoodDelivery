@@ -18,7 +18,7 @@ func main() {
 func Init() error {
 	// 把配置文件里的内容读到当前进程的某个结构体内
 	fmt.Println(os.Getwd())
-	err := config.Init("../internal/config/conf.json")
+	err := config.Init("internal/config/conf.json")
 	if err != nil {
 		log.Println(fmt.Errorf("config init error: %v", err))
 		return err
@@ -29,5 +29,4 @@ func Init() error {
 		return err
 	}
 	return nil
-
 }

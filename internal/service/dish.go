@@ -5,7 +5,6 @@ import (
 	"FoodDelivery/internal/repository"
 	"FoodDelivery/internal/typ/req"
 	"FoodDelivery/internal/typ/resp"
-	"strconv"
 )
 
 func GetAllDishes() ([]resp.DishResp, error) {
@@ -17,8 +16,8 @@ func GetAllDishes() ([]resp.DishResp, error) {
 	var dishResponses []resp.DishResp
 	for _, dish := range dishes {
 		dishResponses = append(dishResponses, resp.DishResp{
-			Id:         strconv.Itoa(int(dish.ID)),
-			Price:      strconv.FormatUint(uint64(dish.Price), 10),
+			Id:         dish.ID,
+			Price:      dish.Price,
 			Name:       dish.Name,
 			PictureURL: dish.PictureURL,
 		})
@@ -73,8 +72,8 @@ func GetDishDetail(id uint) (resp.DishResp, error) {
 	}
 
 	return resp.DishResp{
-		Id:          strconv.Itoa(int(dish.ID)),
-		Price:       strconv.FormatUint(uint64(dish.Price), 10),
+		Id:          dish.ID,
+		Price:       dish.Price,
 		Name:        dish.Name,
 		PictureURL:  dish.PictureURL,
 		Description: dish.Description,
