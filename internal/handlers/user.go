@@ -22,7 +22,9 @@ func Login(ctx *gin.Context) {
 		})
 		return
 	}
-	if err := service.UserLogin(loginReq); err != nil {
+	var loginResp resp.LoginResp
+	var err error
+	if loginResp, err = service.UserLogin(loginReq); err != nil {
 		log.Println(fmt.Sprintf("[UserLogin] wrong: %v", err))
 		ctx.JSON(http.StatusBadRequest, &resp.T{
 			MetaData: &resp.MetaData{
@@ -37,13 +39,10 @@ func Login(ctx *gin.Context) {
 			Code: http.StatusOK,
 			Msg:  "user identity check ok",
 		},
+		Result: loginResp,
 	})
 	return
 }
-
-//func Logout(ctx *gin.Context) {
-//
-//}
 
 func GetUserDetail(ctx *gin.Context) {
 	var userDetailReq req.UserDetailReq

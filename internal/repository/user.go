@@ -8,16 +8,19 @@ import (
 	"errors"
 )
 
-func UserLogin(req req.UserLoginReq) error {
+func UserLogin(req req.UserLoginReq) (resp.LoginResp, error) {
 	var user model.User
+	var r resp.LoginResp
 	res := mysql.Client.Where("account = ?", req.Account).Find(&user)
 	if res.Error != nil {
-		return errors.New("user not found")
+		return r, errors.New("user not found")
 	}
+	r.UserID = user.ID
+	r.Token = ""
 	if user.Password == req.Password {
-		return nil
+		return r, nil
 	}
-	return errors.New("password wrong")
+	return r, errors.New("password wrong")
 }
 
 func GetUserByID(id uint) (resp.UserDetailResp, error) {
@@ -36,9 +39,9 @@ func GetUserByID(id uint) (resp.UserDetailResp, error) {
 }
 
 func CreateUser(user model.User) error {
-	resp := mysql.Client.Create(&user)
-	if resp.Error != nil {
-		return resp.Error
+	create := mysql.Client.Create(&user)
+	if create.Error != nil {
+		return create.Error
 	}
 	return nil
 }

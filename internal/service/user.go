@@ -7,12 +7,10 @@ import (
 	"FoodDelivery/internal/typ/resp"
 )
 
-func UserLogin(req req.UserLoginReq) error {
-	err := repository.UserLogin(req)
-	if err != nil {
-		return err
-	}
-	return nil
+func UserLogin(req req.UserLoginReq) (resp.LoginResp, error) {
+	var r resp.LoginResp
+	r, err := repository.UserLogin(req)
+	return r, err
 }
 
 func UserDetail(req req.UserDetailReq) (resp.UserDetailResp, error) {
