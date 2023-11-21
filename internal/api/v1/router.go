@@ -2,11 +2,15 @@ package api
 
 import (
 	"FoodDelivery/internal/handlers"
+	"FoodDelivery/internal/middlewares"
 	"github.com/gin-gonic/gin"
 )
 
 func NewRouter() *gin.Engine {
 	r := gin.Default()
+
+	r.Use(middlewares.Cors())
+
 	router := r.Group("/elemei/v1")
 	{
 		userRouter := router.Group("/user")
