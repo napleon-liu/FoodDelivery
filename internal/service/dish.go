@@ -16,10 +16,11 @@ func GetAllDishes() ([]resp.DishResp, error) {
 	var dishResponses []resp.DishResp
 	for _, dish := range dishes {
 		dishResponses = append(dishResponses, resp.DishResp{
-			Id:         dish.ID,
-			Price:      dish.Price,
-			Name:       dish.Name,
-			PictureURL: dish.PictureURL,
+			Id:          dish.ID,
+			Price:       dish.Price,
+			Name:        dish.Name,
+			PictureURL:  dish.PictureURL,
+			Description: dish.Description,
 		})
 	}
 
