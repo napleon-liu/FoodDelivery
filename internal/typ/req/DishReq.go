@@ -28,5 +28,5 @@ type CreateDishReq struct {
 
 // DeleteDishReq 删除某项菜品
 type DeleteDishReq struct {
-	ID uint `json:"id" binding:"required"`
+	IDs []uint `json:"ids" binding:"required"`
 }

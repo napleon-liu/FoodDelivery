@@ -62,8 +62,8 @@ func CreateDish(req req.CreateDishReq) (uint, error) {
 	return id, err
 }
 
-func DeleteDish(id uint) error {
-	return repository.DeleteDish(id)
+func DeleteDish(ids []uint) error {
+	return repository.DeleteDish(ids)
 }
 
 func GetDishDetail(id uint) (resp.DishResp, error) {

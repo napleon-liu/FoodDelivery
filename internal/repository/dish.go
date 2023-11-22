@@ -26,8 +26,14 @@ func CreateDish(dish model.Dish) (uint, error) {
 	return dish.ID, nil
 }
 
-func DeleteDish(id uint) error {
-	return mysql.Client.Delete(&model.Dish{}, id).Error
+func DeleteDish(ids []uint) error {
+	for id := range ids {
+		err := mysql.Client.Delete(&model.Dish{}, id).Error
+		if err != nil {
+			return err
+		}
+	}
+	return nil
 }
 
 func GetDishByID(id uint) (model.Dish, error) {

@@ -103,7 +103,7 @@ func DeleteDish(ctx *gin.Context) {
 		})
 		return
 	}
-	err := service.DeleteDish(deleteReq.ID)
+	err := service.DeleteDish(deleteReq.IDs)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, &resp.T{
 			MetaData: &resp.MetaData{
