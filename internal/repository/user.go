@@ -17,10 +17,10 @@ func UserLogin(req req.UserLoginReq) (resp.LoginResp, error) {
 	}
 	r.UserID = user.ID
 	r.Token = ""
-	if user.Password == req.Password {
+	if user.Password == req.Password && user.Role == req.Role {
 		return r, nil
 	}
-	return r, errors.New("password wrong")
+	return r, errors.New("password wrong or role wrong")
 }
 
 func GetUserByID(id uint) (resp.UserDetailResp, error) {
