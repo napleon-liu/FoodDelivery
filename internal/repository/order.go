@@ -64,8 +64,15 @@ func GetOrderListByUserID(req req.GetOrderListByUserIDReq) (resp.OrderListResp, 
 	}
 	for _, order := range orderList {
 		var orderResp = resp.Order{
-			Price:       order.Price,
-			Destination: order.Destination,
+			Price:         order.Price,
+			ID:            order.ID,
+			CreateAt:      order.CreatedAt,
+			UpdateAt:      order.UpdatedAt,
+			CustomerID:    order.CustomerID,
+			DeliverymanID: order.DeliverymanID,
+			EmployeeID:    order.EmployeeID,
+			Destination:   order.Destination,
+			Status:        order.Status,
 		}
 		var orderItemList []model.OrderItem
 		mysql.Client.Where("order_id = ?", order.ID).Find(&orderItemList)
@@ -91,8 +98,15 @@ func GetOrderListByStatus(req req.GetOrderListByStatusReq) (resp.OrderListResp, 
 	mysql.Client.Where("status = ?", req.Status).Find(&orderList)
 	for _, order := range orderList {
 		var orderResp = resp.Order{
-			Price:       order.Price,
-			Destination: order.Destination,
+			Price:         order.Price,
+			ID:            order.ID,
+			CreateAt:      order.CreatedAt,
+			UpdateAt:      order.UpdatedAt,
+			CustomerID:    order.CustomerID,
+			DeliverymanID: order.DeliverymanID,
+			EmployeeID:    order.EmployeeID,
+			Destination:   order.Destination,
+			Status:        order.Status,
 		}
 		var orderItemList []model.OrderItem
 		mysql.Client.Where("order_id = ?", order.ID).Find(&orderItemList)
