@@ -15,17 +15,17 @@ func NewRouter() *gin.Engine {
 	{
 		userRouter := router.Group("/user")
 		userRouter.POST("/login", handlers.Login)
-		userRouter.GET("/detail", handlers.GetUserDetail)
+		userRouter.POST("/detail", handlers.GetUserDetail)
 		userRouter.POST("/register", handlers.Register)
 	}
 
 	{
 		dishRouter := router.Group("/dish")
-		dishRouter.GET("/all", handlers.GetDishList)
+		dishRouter.POST("/all", handlers.GetDishList)
 		dishRouter.PUT("/update", handlers.UpdateDish)
 		dishRouter.POST("/create", handlers.CreateDish)
 		dishRouter.DELETE("/delete", handlers.DeleteDish)
-		dishRouter.GET("/detail", handlers.GetDishDetail)
+		dishRouter.POST("/detail", handlers.GetDishDetail)
 	}
 
 	{
@@ -35,14 +35,14 @@ func NewRouter() *gin.Engine {
 		// 餐厅员工请求送餐 status:3
 		// 送餐员确认送餐单 status:4
 		// 顾客确认已经送达 status:5
-		orderRouter.GET("/orderListByUserID", handlers.GetOrderListByUserID)
-		orderRouter.GET("/orderListByStatus", handlers.GetOrderListByStatus)
+		orderRouter.POST("/orderListByUserID", handlers.GetOrderListByUserID)
+		orderRouter.POST("/orderListByStatus", handlers.GetOrderListByStatus)
 	}
 
 	{
 		commentRouter := router.Group("/comment")
 		commentRouter.POST("/create", handlers.CreateComment) // 顾客创建一条评论
-		commentRouter.GET("/all", handlers.GetCommentList)    // 获取对某条菜品的所有评价
+		commentRouter.POST("/all", handlers.GetCommentList)   // 获取对某条菜品的所有评价
 	}
 	return r
 }
