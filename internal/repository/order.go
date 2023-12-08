@@ -94,34 +94,42 @@ func GetOrderListByUserID(req req.GetOrderListByUserIDReq) (resp.OrderListResp, 
 
 func GetOrderListByStatus(req req.GetOrderListByStatusReq) (resp.OrderListResp, error) {
 	var orderListResp resp.OrderListResp
-	var orderList []model.Order
-	mysql.Client.Where("status = ?", req.Status).Find(&orderList)
-	for _, order := range orderList {
-		var orderResp = resp.Order{
-			Price:         order.Price,
-			ID:            order.ID,
-			CreateAt:      order.CreatedAt,
-			UpdateAt:      order.UpdatedAt,
-			CustomerID:    order.CustomerID,
-			DeliverymanID: order.DeliverymanID,
-			EmployeeID:    order.EmployeeID,
-			Destination:   order.Destination,
-			Status:        order.Status,
+	for _, status := range req.Status {
+		var orderList []model.Order
+		mysql.Client.Where("status = ?", status).Find(&orderList)
+		if len(orderList) == 0 {
+			continue
 		}
-		var orderItemList []model.OrderItem
-		mysql.Client.Where("order_id = ?", order.ID).Find(&orderItemList)
-		for _, orderItem := range orderItemList {
-			var dish model.Dish
-			mysql.Client.Where("id = ?", orderItem.DishID).First(&dish)
-			var dishResp = resp.DishResp{
-				Id:         dish.ID,
-				Price:      dish.Price,
-				Name:       dish.Name,
-				PictureURL: dish.PictureURL,
+		for _, order := range orderList {
+			var orderResp = resp.Order{
+				Price:         order.Price,
+				ID:            order.ID,
+				CreateAt:      order.CreatedAt,
+				UpdateAt:      order.UpdatedAt,
+				CustomerID:    order.CustomerID,
+				DeliverymanID: order.DeliverymanID,
+				EmployeeID:    order.EmployeeID,
+				Destination:   order.Destination,
+				Status:        order.Status,
 			}
-			orderResp.DishRespList = append(orderResp.DishRespList, dishResp)
+			var orderItemList []model.OrderItem
+			mysql.Client.Where("order_id = ?", order.ID).Find(&orderItemList)
+			for _, orderItem := range orderItemList {
+				var dish model.Dish
+				mysql.Client.Where("id = ?", orderItem.DishID).First(&dish)
+				if dish.Price == 0 {
+					continue
+				}
+				var dishResp = resp.DishResp{
+					Id:         dish.ID,
+					Price:      dish.Price,
+					Name:       dish.Name,
+					PictureURL: dish.PictureURL,
+				}
+				orderResp.DishRespList = append(orderResp.DishRespList, dishResp)
+			}
+			orderListResp.OrderList = append(orderListResp.OrderList, orderResp)
 		}
-		orderListResp.OrderList = append(orderListResp.OrderList, orderResp)
 	}
 	return orderListResp, nil
 }
