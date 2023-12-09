@@ -33,13 +33,13 @@ func UpdateOrderStatus(req req.UpdateOrderReq) error {
 	var db *gorm.DB
 	switch req.Role {
 	case 1:
-		db = mysql.Client.Model(&model.User{}).Where("id = ?", req.OrderID).Update("status", req.Status)
+		db = mysql.Client.Model(&model.Order{}).Where("id = ?", req.OrderID).Update("status", req.Status)
 	case 2:
-		db = mysql.Client.Model(&model.User{}).Where("id = ?", req.OrderID).Update("employee_id", req.UserID)
-		db = mysql.Client.Model(&model.User{}).Where("id = ?", req.OrderID).Update("status", req.Status)
+		db = mysql.Client.Model(&model.Order{}).Where("id = ?", req.OrderID).Update("employee_id", req.UserID)
+		db = mysql.Client.Model(&model.Order{}).Where("id = ?", req.OrderID).Update("status", req.Status)
 	case 3:
-		db = mysql.Client.Model(&model.User{}).Where("id = ?", req.OrderID).Update("deliveryman_id", req.UserID)
-		db = mysql.Client.Model(&model.User{}).Where("id = ?", req.OrderID).Update("status", req.Status)
+		db = mysql.Client.Model(&model.Order{}).Where("id = ?", req.OrderID).Update("deliveryman_id", req.UserID)
+		db = mysql.Client.Model(&model.Order{}).Where("id = ?", req.OrderID).Update("status", req.Status)
 	default:
 		return errors.New("no such role")
 	}
