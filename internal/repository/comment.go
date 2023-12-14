@@ -10,9 +10,9 @@ func CreateComment(comment model.Comment) error {
 	return mysql.Client.Create(&comment).Error
 }
 
-func GetCommentByDishID(dishID uint) (resp.GetCommentResp, error) {
+func GetCommentByOrderID(orderID uint) (resp.GetCommentResp, error) {
 	var commentList []model.Comment
-	db := mysql.Client.Model(&model.Comment{}).Where("dish_id = ?", dishID).Find(&commentList)
+	db := mysql.Client.Model(&model.Comment{}).Where("order_id = ?", orderID).Find(&commentList)
 	if db.Error != nil {
 		return resp.GetCommentResp{}, db.Error
 	}
@@ -22,7 +22,7 @@ func GetCommentByDishID(dishID uint) (resp.GetCommentResp, error) {
 			CommentID:  v.ID,
 			Content:    v.Content,
 			Rating:     v.Rating,
-			DishID:     v.DishID,
+			OrderID:    v.OrderID,
 			CustomerID: v.CustomerID,
 		}
 		getCommentResp.CommentList = append(getCommentResp.CommentList, comment)

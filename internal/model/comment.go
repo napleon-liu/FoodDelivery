@@ -6,6 +6,6 @@ type Comment struct {
 	gorm.Model
 	Content    string
 	Rating     uint
-	DishID     uint
+	OrderID    uint
 	CustomerID uint
 }

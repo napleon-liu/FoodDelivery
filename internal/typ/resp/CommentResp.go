@@ -4,7 +4,7 @@ type Comment struct {
 	CommentID  uint   `json:"commentID"`
 	Content    string `json:"content"`
 	Rating     uint   `json:"rating"`
-	DishID     uint   `json:"dishID"`
+	OrderID    uint   `json:"orderID"`
 	CustomerID uint   `json:"customerID"`
 }
 
