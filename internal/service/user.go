@@ -1,10 +1,10 @@
 package service
 
 import (
-	"FoodDelivery/internal/model"
-	"FoodDelivery/internal/repository"
-	"FoodDelivery/internal/typ/req"
-	"FoodDelivery/internal/typ/resp"
+	"elemei/internal/model"
+	"elemei/internal/repository"
+	"elemei/internal/typ/req"
+	"elemei/internal/typ/resp"
 )
 
 func UserLogin(req req.UserLoginReq) (resp.LoginResp, error) {

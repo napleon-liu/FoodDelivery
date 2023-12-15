@@ -1,8 +1,8 @@
 package api
 
 import (
-	"FoodDelivery/internal/handlers"
-	"FoodDelivery/internal/middlewares"
+	"elemei/internal/handlers"
+	"elemei/internal/middlewares"
 	"github.com/gin-gonic/gin"
 )
 

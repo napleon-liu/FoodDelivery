@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"FoodDelivery/internal/model"
-	"FoodDelivery/internal/repository/mysql"
+	"elemei/internal/model"
+	"elemei/internal/repository/mysql"
 )
 
 func GetAllDishes() ([]model.Dish, error) {

@@ -1,9 +1,9 @@
 package main
 
 import (
-	"FoodDelivery/internal/api/v1"
-	"FoodDelivery/internal/config"
-	"FoodDelivery/internal/repository/mysql"
+	"elemei/internal/api/v1"
+	"elemei/internal/config"
+	"elemei/internal/repository/mysql"
 	"fmt"
 	"log"
 )

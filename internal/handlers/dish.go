@@ -1,13 +1,12 @@
 package handlers
 
 import (
-	"FoodDelivery/internal/service"
-	"FoodDelivery/internal/typ/req"
+	"elemei/internal/service"
+	"elemei/internal/typ/req"
+	"elemei/internal/typ/resp"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	//"FoodDelivery/internal/typ/req"
-	"FoodDelivery/internal/typ/resp"
 )
 
 // GetDishList user and employee interface. show all dish

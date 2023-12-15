@@ -1,10 +1,10 @@
 package repository
 
 import (
-	"FoodDelivery/internal/model"
-	"FoodDelivery/internal/repository/mysql"
-	"FoodDelivery/internal/typ/req"
-	"FoodDelivery/internal/typ/resp"
+	"elemei/internal/model"
+	"elemei/internal/repository/mysql"
+	"elemei/internal/typ/req"
+	"elemei/internal/typ/resp"
 	"errors"
 )
 

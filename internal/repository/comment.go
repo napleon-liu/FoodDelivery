@@ -1,9 +1,9 @@
 package repository
 
 import (
-	"FoodDelivery/internal/model"
-	"FoodDelivery/internal/repository/mysql"
-	"FoodDelivery/internal/typ/resp"
+	"elemei/internal/model"
+	"elemei/internal/repository/mysql"
+	"elemei/internal/typ/resp"
 )
 
 func CreateComment(comment model.Comment) error {

@@ -1,7 +1,7 @@
 package mysql
 
 import (
-	"FoodDelivery/internal/config"
+	"elemei/internal/config"
 	"fmt"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

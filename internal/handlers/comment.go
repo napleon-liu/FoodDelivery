@@ -1,9 +1,9 @@
 package handlers
 
 import (
-	"FoodDelivery/internal/service"
-	"FoodDelivery/internal/typ/req"
-	"FoodDelivery/internal/typ/resp"
+	"elemei/internal/service"
+	"elemei/internal/typ/req"
+	"elemei/internal/typ/resp"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"log"

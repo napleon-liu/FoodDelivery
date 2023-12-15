@@ -1,19 +1,8 @@
 {
   "MySQLConfig": {
     "Name": "elemei",
-    "Host": "172.31.144.1:3306",
+    "Host": "127.0.0.1:3306",
     "User": "root",
     "Pass": "548926"
-  },
-  "RedisConfig": {
-    "Addr": "172.31.144.1:17483",
-    "Pass": "548926"
-  },
-  "EmailConfig": {
-    "From": "[TalentGlimpse]验证码 <xialinrui@qq.com>",
-    "Host": "smtp.qq.com",
-    "Addr": "smtp.qq.com:25",
-    "Username": "xialinrui@qq.com",
-    "Pass": "kelmagvmdncodfji"
   }
 }
