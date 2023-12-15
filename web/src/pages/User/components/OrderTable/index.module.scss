@@ -1,0 +1,65 @@
+.dish {
+  :global .ant-typography {
+    width: 50%;
+    vertical-align: top;
+    font-family: '仿宋';
+    font-size: 14px;
+    margin-left: 10px;
+    font-weight: bolder;
+
+    strong {
+      border-bottom: 2px double #2aaa8a;
+    }
+  }
+  .images {
+    display: inline-block;
+    max-width: 12vmax;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 3px;
+  }
+}
+.time {
+  :global .ant-typography {
+    font-size: 14px;
+    font-family: 'Consolas';
+  }
+}
+
+.price {
+  width: auto;
+  .value {
+    font-weight: bolder;
+    margin-bottom: 5px;
+  }
+  .num {
+    font-size: 10px;
+    color: #2aaa8a;
+    font-family: 'Consolas';
+  }
+}
+
+.status {
+  font-family: '新宋体';
+  font-weight: bolder;
+  :global .ant-typography {
+    padding: 2px;
+    border-radius: 10px;
+    color: #fff;
+  }
+}
+
+.action {
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  &:hover {
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+  }
+}
+
+:global .ant-table-row {
+  td:not(:last-child) {
+    cursor: pointer;
+  }
+}

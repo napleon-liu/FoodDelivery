@@ -1,0 +1,68 @@
+.content-header {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  text-align: initial;
+  .delete {
+    opacity: 1;
+  }
+  .create {
+    position: absolute;
+    right: 10px;
+  }
+}
+
+.price {
+  font-size: 18px;
+  color: goldenrod;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  span {
+    width: 50%;
+    svg {
+      font-size: 1.5vmax;
+      margin: auto;
+      transition: all 0.3s;
+    }
+    &:hover {
+      svg {
+        transform: scale(1.3);
+      }
+    }
+  }
+}
+
+:global .ant-table {
+  th {
+    font-size: 16px;
+  }
+}
+
+:global .ant-table-filter-dropdown {
+  border: 1px dotted #2aaa8a;
+  :local .price-filter {
+    padding: 10px 20px;
+    .form {
+      :global .ant-form-item {
+        margin: 0;
+      }
+      .sign {
+        margin: 0 10px;
+        font-weight: bolder;
+      }
+    }
+
+    .filter-actions {
+      display: flex;
+      justify-content: space-between;
+      button {
+        flex: 1;
+        margin: 0 20px;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.rider-rate {
+  span {
+    margin: 0 10px;
+    svg {
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .hover {
+      box-shadow: 0px 0px 10px lighten($color: #2aaa8a, $amount: 10%);
+    }
+  }
+}

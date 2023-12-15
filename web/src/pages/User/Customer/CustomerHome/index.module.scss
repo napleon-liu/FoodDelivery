@@ -1,0 +1,65 @@
+$border-style: solid;
+
+.header {
+  position: sticky;
+  width: 100%;
+  top: 64px;
+  z-index: 99;
+  padding: 10px 0;
+  margin-bottom: 20px;
+  border-bottom: 2px $border-style #e5e5e5;
+  //   border-radius: 5px;
+  //   border-top-right-radius: 0;
+  //   border-top-left-radius: 0;
+  background-color: #fff;
+  :global .ant-row {
+    margin-bottom: 0 !important;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 20px;
+    background-color: #fff;
+    border-bottom: 2px $border-style #e5e5e5;
+    top: 0;
+  }
+
+  &::before {
+    left: -20px;
+  }
+
+  &::after {
+    right: -20px;
+  }
+}
+
+.orderItemList {
+  height: 50%;
+
+  min-height: 250px;
+  background-color: #fefefe;
+  position: relative;
+  :global .ant-list {
+    min-height: 200px;
+    height: 85%;
+    overflow: auto !important;
+    mark {
+      background-color: #2aaa8a !important;
+      color: #fff;
+      padding: 2px !important;
+      border-radius: 5px;
+      font-family: 'Consolas';
+    }
+  }
+}
+
+.info {
+  height: 30%;
+}
+
+.pay {
+  margin-top: 50px;
+}

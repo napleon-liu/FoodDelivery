@@ -1,0 +1,55 @@
+.content {
+  text-align: left;
+  h1 {
+    font-family: '新宋体';
+    font-weight: bolder;
+    color: #233;
+    text-shadow: 4px 4px 4px rgba(42, 170, 138, 0.5);
+  }
+  .orderItemList {
+    margin-bottom: 20px;
+    background-color: #fefefe;
+    position: relative;
+    :global .ant-list {
+      max-height: 24vh;
+      overflow: auto !important;
+      mark {
+        background-color: #2aaa8a !important;
+        color: #fff;
+        padding: 2px !important;
+        border-radius: 5px;
+        font-family: 'Consolas';
+      }
+    }
+  }
+
+  .price {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    & > div {
+      position: absolute;
+      right: 20px;
+    }
+  }
+
+  .orderInfoList {
+    margin-top: 20px;
+    .info {
+      text-align: right;
+    }
+  }
+}
+
+.modal {
+  :global .ant-modal-content {
+    border-radius: 20px;
+  }
+
+  .rate {
+    transform: scale(0.8);
+    :global .ant-rate-star {
+      margin: 0 !important;
+    }
+  }
+}

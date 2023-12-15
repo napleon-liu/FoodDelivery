@@ -1,0 +1,39 @@
+.content {
+  width: 40vw;
+  .selected {
+    background-color: #ecffdc;
+    margin-left: -4.8px !important;
+    border-left: 5px solid #2aaa8a !important;
+    border-radius: 5px;
+    box-sizing: border-box;
+    :local .search-value {
+      color: #2aaa8a !important;
+    }
+  }
+  :global .ant-list-item {
+    padding-left: 20px !important;
+    cursor: pointer;
+    :local .search-value {
+      margin-right: 20px;
+      font-family: '宋体';
+      font-size: 1.2vmax;
+      color: #afe1af;
+      transition: color 0.5s;
+    }
+  }
+  .current {
+    border-bottom: 0;
+    padding: 15px 0;
+  }
+  .hr {
+    margin: 10px auto;
+    border-bottom: 4px double #9fe2bf;
+  }
+
+  h2 {
+    margin: 5px 0px 5px 20px;
+    font-size: 2vmax;
+    font-family: '新宋体';
+    color: #2aaa8a;
+  }
+}

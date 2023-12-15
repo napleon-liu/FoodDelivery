@@ -1,0 +1,53 @@
+.form {
+  max-width: 40vw;
+  max-height: 70vh;
+  min-width: 300px;
+  overflow: auto;
+  background: linear-gradient(to bottom right, #ddffff, #ffeeff);
+  border-radius: 1vmax;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+  padding: 20px;
+  transform: scale(1.5);
+
+  &:hover {
+    transform: scale(1.6);
+    background: linear-gradient(to bottom right, #daffff, #ffe9ff);
+  }
+
+  a {
+    color: #2aaa8a;
+  }
+  .logo {
+    margin: 0 auto 2vh;
+    display: block;
+    z-index: 2;
+    width: 7vmax;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.register {
+  transform: scale(1.1);
+  &:hover {
+    transform: scale(1.2);
+  }
+  .check {
+    margin-left: 20%;
+    padding: 0;
+    :global .ant-row {
+      width: 100%;
+      padding: 0;
+      .ant-col {
+        display: flex;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+.hover {
+  transform: scale(1.2);
+}
