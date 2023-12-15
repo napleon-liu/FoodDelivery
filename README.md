@@ -17,5 +17,7 @@ go run main.go
 ### Frontend
 
 ```bash
+npm install -g serve
+cd web
+serve -s build
 ```
-
