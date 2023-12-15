@@ -11,7 +11,7 @@
 /web/.env
 
 # production
-/web/build
+
 
 # misc
 .DS_Store
